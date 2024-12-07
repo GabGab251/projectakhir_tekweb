@@ -5,7 +5,7 @@ if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Query untuk mencari email
+    // Query mencari email
     $query = "SELECT * FROM user WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
 
@@ -13,9 +13,17 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
 
         // Verifikasi password
-        if ($password === $row['password']) { // Ganti dengan password_verify jika menggunakan hashing
+        if ($password === $row['password']) { 
             echo "Login berhasil! Selamat datang, " . $row['username'];
-            header("Location: index.php"); 
+            if ($row['role'] === 'user') {
+              header("Location: user/homeuser_page.php"); // Redirect halaman user
+              exit();
+          } elseif ($row['role'] === 'admin') {
+              header("Location: admin/homeadmin_page.php"); // Redirect halaman admin
+              exit();
+          } else {
+              echo "Role tidak dikenali.";
+          } 
         } else {
             echo "Password salah.";
         }
@@ -25,9 +33,12 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['signup'])) {
-  $nama = $_POST['nama'];
+  $username = $_POST['username'];
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $no_telepon = $_POST['no_telepon'];
 
   // Cek apakah email sudah terdaftar
   $checkQuery = "SELECT * FROM user WHERE email = '$email'";
@@ -37,7 +48,7 @@ if (isset($_POST['signup'])) {
       echo "<script>alert('Email sudah terdaftar. Silakan gunakan email lain.');</script>";
   } else {
       // Tambahkan data ke database
-      $insertQuery = "INSERT INTO user (username, email, password) VALUES ('$nama', '$email', '$password')";
+      $insertQuery = "INSERT INTO user (username, first_name, last_name, email, password, no_telepon, role) VALUES ('$username', '$first_name', '$last_name', '$email', '$password', '$no_telepon', 'user')";
       if (mysqli_query($conn, $insertQuery)) {
           echo "<script>alert('Pendaftaran berhasil! Silakan login.');</script>";
       } else {
@@ -56,26 +67,30 @@ if (isset($_POST['signup'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Surabaya Online Library</title>
   <link rel="stylesheet" href="css/style_login.css">
-
 </head>
 
-<body>
+<body onload="resetForm()">
   <div class="form-structor">
     <div class="signup">
       <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-      <form method="POST" action="">
+      <form method="POST" action="" autocomplete="off">
         <div class="form-holder">
-          <input type="text" name="nama" class="input" placeholder="Name" required />
+          <input type="text" name="username" class="input" placeholder="Username" required autocomplete="off" />
+          <input type="text" name="first_name" class="input" placeholder="First Name" required />
+          <input type="text" name="last_name" class="input" placeholder="Last Name" required />
           <input type="email" name="email" class="input" placeholder="Email" required />
-          <input type="password" name="password" class="input" placeholder="Password" required />
+          <input type="password" name="password" class="input" placeholder="Password" required
+            autocomplete="new-password" />
+          <input type="text" name="no_telepon" class="input" placeholder="No Telp" required />
         </div>
         <button type="submit" name="signup" class="submit-btn">Sign up</button>
       </form>
     </div>
-    <div class="login slide-up">
+
+    <div class="login slideup">
       <div class="center">
         <h2 class="form-title" id="login"><span>or</span>Log in</h2>
-        <form method="POST" action="">
+        <form method="POST" action="" autocomplete="off">
           <div class="form-holder">
             <input type="email" name="email" class="input" placeholder="Email" required />
             <input type="password" name="password" class="input" placeholder="Password" required />
