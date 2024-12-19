@@ -22,38 +22,43 @@
   <!-- Navbar -->
   <nav class="custom-navbar">
     <div class="navbar-brand">
-      <!-- Logo on the left side -->
-      <img src="logo.png" alt="Logo" class="navbar-logo">
-      <span class="logo-text">Surabaya</span>
-      <span class="logo-text">Online Library</span>
+      <i class="fas fa-book navbar-logo" style="font-size: 36px; color: white;"></i>
+      <span class="logo-text">Surabaya Online Library</span>
     </div>
+
     <div class="navbar-links">
       <a href="homeuser_page.php">Home</a>
       <a href="peminjaman.php">Your Borrowing</a>
       <a href="location.php">Location</a>
     </div>
+
     <div class="navbar-profile">
-      <img src="profile.jpg" alt="Profile">
+      <div class="dropdown">
+        <i class="fas fa-user-circle navbar-profile-icon" style="font-size: 60px;" id="profileIcon"></i>
+        <div class="dropdown-content" id="profileMenu">
+          <a href="profile.php">Profile</a>
+          <a href="user_logout.php" id="logoutLink">Logout</a>
+        </div>
+      </div>
     </div>
   </nav>
 
-
   <main>
-
     <section class="hero-section d-flex justify-content-center align-items-center">
       <div class="section-overlay"></div>
-
       <div class="container">
         <div class="row">
-
           <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-            <div class="hero-section-text mt-5">
-              <h6 class="text-white">Hi, Surabayans!</h6>
-              <h1 class="hero-title text-white mt-4 mb-4">Welcome to <br>Surabaya Online Library</h1>
+            <div class="hero-section-text">
+              <div class="hero-title-container">
+                <i class="fas fa-city surabaya-logo"></i>
+                <h1 class="hero-title">Welcome to Surabaya Online Library</h1>
+              </div>
+              <h5 class="hero-description">Access the best books and resources for your learning journey.</h5>
             </div>
           </div>
 
-          <div class="col-lg-6 col-12">
+          <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
             <form class="custom-form hero-form" action="#" method="get" role="form">
               <h3 class="text-white mb-3">Search</h3>
 
@@ -79,94 +84,115 @@
               </div>
             </form>
           </div>
-
         </div>
       </div>
     </section>
 
-    <section class="reminder-section py-5">
+    <<section class="reminder-section py-5">
       <div class="container">
         <div class="row">
-          <!-- Return Reminder -->
+          <!-- Kiri: Konten Reminder -->
           <div class="col-lg-6 col-md-6 col-12 mb-4">
             <h3 class="mb-3">Return Reminder</h3>
             <p>Don't forget to return your borrowed books on time!</p>
-            <ul id="return-reminder">
-              <li><strong>Book Title:</strong> JavaScript: The Good Parts</li>
-              <li><strong>Due Date:</strong> 2024-12-25</li>
+            <ul>
+              <li><strong>Check your borrowing status</strong> - See when you need to return your book.</li>
+              <li><strong>Stay updated</strong> - Make sure your borrowings are not overdue.</li>
             </ul>
           </div>
-
-          <!-- Fine Status -->
-          <div class="col-lg-6 col-md-6 col-12">
-            <h3 class="mb-3">Fine Status</h3>
-            <p>Check your pending fines and make payments to continue borrowing books.</p>
-            <ul id="fine-status">
-              <li><strong>Outstanding Fine:</strong> $2.50</li>
-              <li><strong>Payment Options:</strong> <a href="#">Pay Now</a></li>
-            </ul>
+          <!-- Kanan: Gambar atau Konten Tambahan -->
+          <div class="col-lg-6 col-md-6 col-12 mb-4">
+            <img src="your-image-path.jpg" alt="Library Reminder" class="img-fluid">
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-4 col-md-6 col-12 mb-3">
-          <div class="d-flex align-items-center mb-4">
-            <img src="images/logo.png" class="img-fluid logo-image">
-            <div class="d-flex flex-column">
-              <strong class="logo-text">Surabaya</strong>
-              <small class="logo-slogan">Online Library</small>
+  <footer>
+    <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <!-- Left Section: Surabaya Online Library and Contact Us -->
+          <div class="col-lg-6 col-md-6 col-12 mb-4">
+            <span class="logo-text">Surabaya Online Library</span>
+            <div class="contact-us">
+              <h5>Contact Us</h5>
+              <p>Email: info@surabayaonline.com</p>
+              <div class="social-links">
+                <a href="#" class="mr-3"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="mr-3"><i class="fab fa-twitter-square"></i></a>
+                <a href="#" class="mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="mr-3"><i class="fab fa-linkedin"></i></a>
+              </div>
             </div>
           </div>
 
-          <p class="mb-2">
-            <i class="custom-icon bi-globe me-1"></i>
-            <a href="#" class="site-footer-link">www.splonline.ac.id</a>
-          </p>
-
-          <p class="mb-2">
-            <i class="custom-icon bi-telephone me-1"></i>
-            <a href="tel: 812-4120-5412" class="site-footer-link">(+62) 812-4120-5412</a>
-          </p>
-
-          <p>
-            <i class="custom-icon bi-envelope me-1"></i>
-            <a href="mailto:info@splonline.ac.id" class="site-footer-link">info@splonline.ac.id</a>
-          </p>
-
+          <!-- Right Section: Library Hours and Our Location -->
+          <div class="col-lg-6 col-md-6 col-12 mb-4 text-md-right">
+            <div class="library-info">
+              <h5>Library Hours</h5>
+              <p>Monday to Friday: 9:00 AM - 5:00 PM</p>
+              <p>Saturday: 10:00 AM - 3:00 PM</p>
+              <p>Sunday: Closed</p>
+            </div>
+            <div class="location-info">
+              <h5>Our Location</h5>
+              <p>Jl. Raya No. 123, Surabaya, East Java, Indonesia</p>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
 
+    <!-- Footer Bottom Text -->
     <div class="site-footer-bottom">
       <div class="container">
         <div class="row">
-
-          <div class="col-lg-4 col-12 d-flex align-items-center">
-            <p class="copyright-text">Copyright © Surabaya Public Library 2024</p>
+          <div class="col-12 text-center">
+            <div class="copyright-text">
+              Copyright 2024 &copy; Surabaya Online Library
+            </div>
           </div>
-
-          <a class="back-top-icon bi-arrow-up smoothscroll d-flex justify-content-center align-items-center"
-            href="#top"></a>
-
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/counter.js"></script>
-  <script src="js/custom.js"></script>
+  <!-- Back to top icon -->
+  <div class="back-top-icon" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 
+  <script>
+  // Scroll to top functionality
+  const backToTopButton = document.getElementById('back-to-top');
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Dropdown Toggle
+  document.querySelector(".navbar-profile-icon").addEventListener("click", function() {
+    document.getElementById("profileMenu").classList.toggle("show");
+  });
+
+  // Close the dropdown if clicked outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.navbar-profile-icon')) {
+      var dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(function(dropdown) {
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+      });
+    }
+  };
+  </script>
 </body>
 
 </html>
