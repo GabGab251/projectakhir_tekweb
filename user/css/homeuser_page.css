@@ -1,0 +1,243 @@
+body {
+  font-family: 'League Spartan', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.custom-navbar {
+  background-color: #2c3e50;
+  padding: 15px 30px; /* Increased padding for larger navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  width: 50px;
+  height: auto;
+}
+
+.logo-text {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.5rem; /* Increased font size for the logo */
+}
+
+.navbar-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.navbar-links a:hover {
+  color: #e74c3c;
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; /* Adjusted margin to bring profile closer */
+}
+
+.navbar-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(230, 55, 55, 0.9), rgba(44, 62, 80, 0.7));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-section-text {
+  color: white;
+  max-width: 500px;
+}
+
+.hero-section .hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.hero-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 20px;
+}
+
+.hero-form h3 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group-text {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.form-control {
+  background-color: #34495e;
+  color: white;
+  border: none;
+}
+
+.form-control::placeholder {
+  color: #bdc3c7;
+}
+
+button[type="submit"] {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #c0392b;
+}
+
+/* Reminder Section */
+.reminder-section {
+  background-color: #ecf0f1;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.reminder-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.reminder-section p {
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.reminder-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reminder-section li {
+  color: #2c3e50;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.reminder-section li strong {
+  font-weight: bold;
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 30px 0;
+}
+
+.site-footer .logo-text {
+  font-size: 1.5rem;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #e74c3c;
+}
+
+.site-footer-bottom {
+  background-color: #34495e;
+  padding: 10px 0;
+}
+
+.site-footer-bottom .copyright-text {
+  color: white;
+  text-align: center;
+}
+
+/* Back to Top Button */
+.back-top-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+}
+
+.back-top-icon:hover {
+  background-color: #c0392b;
+}
+
+/* Adjusting for Mobile */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero-section-text {
+    text-align: center;
+  }
+
+  .hero-form {
+    margin-top: 20px;
+    width: 80%;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-profile {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-form h3 {
+    font-size: 1.5rem;
+  }
+}

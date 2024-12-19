@@ -1,0 +1,39 @@
+/* Tombol yang selalu ada di bawah card */
+.card-btn {
+  position: absolute;
+  top: 100%; /* Tombol di bawah card */
+  left: 50%;
+  transform: translateX(-50%); /* Menyelaraskan tombol horizontal */
+  background-color: white;
+  border: 2px solid transparent; /* Border transparan secara default */
+  padding: 10px 20px;
+  font-size: 15px;
+  z-index: 1;
+  width: 100%; /* Lebar tombol mengikuti lebar card */
+  border-radius: 5px; /* Membuat sudut tombol lebih halus */
+}
+
+/* Warna latar belakang dan teks untuk masing-masing kartu */
+.card-body-total_books {
+  background-color: #4C1F7A !important;
+  color: white !important;
+  border-radius: 0.25rem;
+}
+
+.card-body-available_books {
+  background-color: #2C7865 !important;
+  color: white !important;
+  border-radius: 0.25rem;
+}
+
+.card-body-borrowed_books {
+  background-color: #A66E38 !important;
+  color: white !important;
+  border-radius: 0.25rem;
+}
+
+.card-body-unpaid_fines {
+  background-color: #A02334 !important;
+  color: white !important;
+  border-radius: 0.25rem;
+}

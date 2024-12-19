@@ -1,0 +1,47 @@
+/* Styling untuk gambar cover buku */
+.cover-img {
+  width: 120px; /* Lebar gambar */
+  height: 160px; /* Tinggi gambar */
+  object-fit: cover; /* Memastikan gambar tetap proporsional */
+  border-radius: 8px; /* Membuat sudut gambar melengkung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan di sekitar gambar */
+  margin: 0 auto; /* Tengahkan gambar */
+}
+
+/* Styling untuk table agar lebih rapi */
+.table {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table th {
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Tombol Edit dan Delete */
+.btn-edit, .btn-delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.btn-edit:hover {
+  color: #0d6efd; /* Warna biru saat hover */
+}
+
+.btn-delete:hover {
+  color: #dc3545; /* Warna merah saat hover */
+}

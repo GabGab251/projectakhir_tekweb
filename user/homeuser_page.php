@@ -13,72 +13,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap"
     rel="stylesheet">
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap-icons.css" rel="stylesheet">
-  <link href="css/owl.carousel.min.css" rel="stylesheet">
-  <link href="css/owl.theme.default.min.css" rel="stylesheet">
-  <link href="css/tooplate-gotto-job.css" rel="stylesheet"> -->
-  <link href="css/homepage.css" rel="stylesheet">
-  <link href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="css/homeuser_page.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
-
 <body id="top">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="images/logo.png" class="img-fluid logo-image">
-        <div class="d-flex flex-column">
-          <strong class="logo-text">Surabaya</strong>
-          <small class="logo-slogan">Online Library</small>
-        </div>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav align-items-center ms-lg-5">
-          <li class="nav-item">
-            <a class="nav-link active" href="homepage.html">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="peminjaman.html">Your Borrowing</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="location.html">Location</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="collapse navbar-collapse" id="navbarProfile">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle fs-4 me-2"></i> <!-- User Icon -->
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-              <li>
-                <a class="dropdown-item" href="profile.html">
-                  <i class="bi bi-person me-2"></i>Profile
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="logout.html">
-                  <i class="bi bi-box-arrow-right me-2"></i>Log Out
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  <!-- Navbar -->
+  <nav class="custom-navbar">
+    <div class="navbar-brand">
+      <!-- Logo on the left side -->
+      <img src="logo.png" alt="Logo" class="navbar-logo">
+      <span class="logo-text">Surabaya</span>
+      <span class="logo-text">Online Library</span>
+    </div>
+    <div class="navbar-links">
+      <a href="homeuser_page.php">Home</a>
+      <a href="peminjaman.php">Your Borrowing</a>
+      <a href="location.php">Location</a>
+    </div>
+    <div class="navbar-profile">
+      <img src="profile.jpg" alt="Profile">
     </div>
   </nav>
+
 
   <main>
 
@@ -103,7 +61,6 @@
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-fancy"></i></span>
-
                     <input type="text" name="book-author" id="book-author" class="form-control"
                       placeholder="Author's name">
                   </div>
@@ -112,15 +69,12 @@
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon2"><i class="fas fa-book"></i></span>
-
                     <input type="text" name="book-title" id="book-title" class="form-control" placeholder="Title">
                   </div>
                 </div>
 
                 <div class="col-lg-12 col-12">
-                  <button type="submit" class="form-control">
-                    Find the book
-                  </button>
+                  <button type="submit" class="form-control">Find the book</button>
                 </div>
               </div>
             </form>
@@ -138,7 +92,8 @@
             <h3 class="mb-3">Return Reminder</h3>
             <p>Don't forget to return your borrowed books on time!</p>
             <ul id="return-reminder">
-              <li>Loading borrowed book details...</li>
+              <li><strong>Book Title:</strong> JavaScript: The Good Parts</li>
+              <li><strong>Due Date:</strong> 2024-12-25</li>
             </ul>
           </div>
 
@@ -147,7 +102,8 @@
             <h3 class="mb-3">Fine Status</h3>
             <p>Check your pending fines and make payments to continue borrowing books.</p>
             <ul id="fine-status">
-              <li>Loading fine details...</li>
+              <li><strong>Outstanding Fine:</strong> $2.50</li>
+              <li><strong>Payment Options:</strong> <a href="#">Pay Now</a></li>
             </ul>
           </div>
         </div>
@@ -163,7 +119,6 @@
         <div class="col-lg-4 col-md-6 col-12 mb-3">
           <div class="d-flex align-items-center mb-4">
             <img src="images/logo.png" class="img-fluid logo-image">
-
             <div class="d-flex flex-column">
               <strong class="logo-text">Surabaya</strong>
               <small class="logo-slogan">Online Library</small>
@@ -172,26 +127,17 @@
 
           <p class="mb-2">
             <i class="custom-icon bi-globe me-1"></i>
-
-            <a href="#" class="site-footer-link">
-              www.splonline.ac.id
-            </a>
+            <a href="#" class="site-footer-link">www.splonline.ac.id</a>
           </p>
 
           <p class="mb-2">
             <i class="custom-icon bi-telephone me-1"></i>
-
-            <a href="tel: 812-4120-5412" class="site-footer-link">
-              (+62) 812-4120-5412
-            </a>
+            <a href="tel: 812-4120-5412" class="site-footer-link">(+62) 812-4120-5412</a>
           </p>
 
           <p>
             <i class="custom-icon bi-envelope me-1"></i>
-
-            <a href="mailto:info@splonline.ac.id" class="site-footer-link">
-              info@splonline.ac.id
-            </a>
+            <a href="mailto:info@splonline.ac.id" class="site-footer-link">info@splonline.ac.id</a>
           </p>
 
         </div>
@@ -220,36 +166,6 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/counter.js"></script>
   <script src="js/custom.js"></script>
-
-  <!--GATAU INI BENER GA-->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Fetch borrowed books and fine details for the user (replace with actual API endpoint)
-    const userId = "USER_ID"; // Replace with dynamic user ID
-    const apiEndpoint = `https://api.example.com/library/user/${userId}/borrowing`;
-
-    fetch(apiEndpoint)
-      .then(response => response.json())
-      .then(data => {
-        // Update return reminder section
-        const reminderSection = document.querySelector(".reminder-section .col-lg-6:nth-child(1) ul");
-        reminderSection.innerHTML = `
-                <li><strong>Book Title:</strong> ${data.bookTitle}</li>
-                <li><strong>Due Date:</strong> ${data.dueDate}</li>
-            `;
-
-        // Update fine status section
-        const fineSection = document.querySelector(".reminder-section .col-lg-6:nth-child(2) ul");
-        fineSection.innerHTML = `
-                <li><strong>Outstanding Fine:</strong> $${data.outstandingFine}</li>
-                <li><strong>Payment Options:</strong> <a href="${data.paymentLink}">Pay Now</a></li>
-            `;
-      })
-      .catch(error => {
-        console.error("Error fetching borrowing data:", error);
-      });
-  });
-  </script>
 
 </body>
 

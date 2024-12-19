@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .card {
+            width: 350px;
+            background-color: #efefef;
+            border: none;
+            transition: all 0.5s;
+        }
+
+        .btn {
+            height: 140px;
+            width: 140px;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .idd {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .text span {
+            font-size: 13px;
+            color: #545454;
+            font-weight: 500;
+        }
+
+        .icons i {
+            font-size: 19px;
+        }
+
+        .edit-overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <button class="btn btn-secondary">
+                    <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
+                </button>
+                <span class="name mt-3" id="userName">[Enter Name]</span>
+                <span class="idd" id="userUsername">[Enter Username]</span>
+                <span class="idd" id="userEmail">[Enter Email]</span>
+                <span class="idd" id="userPhone">[Enter Phone]</span>
+                <div class="d-flex mt-2">
+                    <button class="btn btn-dark" id="editProfileBtn">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Form Overlay -->
+    <div class="edit-overlay" id="editOverlay">
+        <div class="edit-form">
+            <button class="btn-close" id="closeOverlay">&times;</button>
+            <h4>Edit Profile</h4>
+            <div class="form-group">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" class="form-control" placeholder="Enter your name" />
+            </div>
+            <div class="form-group">
+                <label for="editUsername">Username:</label>
+                <input type="text" id="editUsername" class="form-control" placeholder="Enter your username" />
+            </div>
+            <div class="form-group">
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" class="form-control" placeholder="Enter your email" />
+            </div>
+            <div class="form-group">
+                <label for="editPhone">Phone:</label>
+                <input type="text" id="editPhone" class="form-control" placeholder="Enter your phone" />
+            </div>
+            <button class="btn btn-primary w-100" id="saveProfile">Save</button>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const editOverlay = document.getElementById("editOverlay");
+        const editProfileBtn = document.getElementById("editProfileBtn");
+        const closeOverlay = document.getElementById("closeOverlay");
+        const saveProfile = document.getElementById("saveProfile");
+
+        const userName = document.getElementById("userName");
+        const userUsername = document.getElementById("userUsername");
+        const userEmail = document.getElementById("userEmail");
+        const userPhone = document.getElementById("userPhone");
+
+        const editName = document.getElementById("editName");
+        const editUsername = document.getElementById("editUsername");
+        const editEmail = document.getElementById("editEmail");
+        const editPhone = document.getElementById("editPhone");
+
+        // Open edit overlay
+        editProfileBtn.addEventListener("click", () => {
+            editName.value = userName.textContent === "[Enter Name]" ? "" : userName.textContent;
+            editUsername.value = userUsername.textContent === "[Enter Username]" ? "" : userUsername.textContent;
+            editEmail.value = userEmail.textContent === "[Enter Email]" ? "" : userEmail.textContent;
+            editPhone.value = userPhone.textContent === "[Enter Phone]" ? "" : userPhone.textContent;
+            editOverlay.style.display = "flex";
+        });
+
+        // Close edit overlay
+        closeOverlay.addEventListener("click", () => {
+            editOverlay.style.display = "none";
+        });
+
+        // Save profile changes
+        saveProfile.addEventListener("click", () => {
+            userName.textContent = editName.value || "[Enter Name]";
+            userUsername.textContent = editUsername.value || "[Enter Username]";
+            userEmail.textContent = editEmail.value || "[Enter Email]";
+            userPhone.textContent = editPhone.value || "[Enter Phone]";
+
+            editOverlay.style.display = "none";
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

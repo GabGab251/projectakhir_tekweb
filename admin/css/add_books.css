@@ -1,0 +1,51 @@
+.container {
+  margin-top: 40px;
+  background: #e64626; /* Warna latar box form */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  color: #000000; /* Warna teks hitam */
+}
+/* Ubah warna label form */
+.form-label {
+  font-weight: bold;
+  color: #000000; /* Warna hitam */
+}
+
+.form-control {
+  background-color: #ffffff; /* Warna input tetap putih agar kontras */
+  color: #000000; /* Warna teks input hitam */
+  border: 1px solid #c0392b; /* Border form lebih gelap */
+}
+
+.form-control:focus {
+  border-color: #ff7e5f; /* Warna fokus form */
+  box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+}
+
+/* Ubah warna tombol tambah */
+.btn-gradient {
+  background: linear-gradient(to right, #4a90e2, #007aff); /* Biru gradasi */
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-gradient i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #007aff, #4a90e2); /* Efek hover biru */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

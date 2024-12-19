@@ -1,0 +1,41 @@
+/* Styling untuk navbar */
+.custom-navbar {
+  background-color: #e64626 !important; /* latbel jadi oren */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  position: fixed; /* Navbar selalu di atas layar */
+  width: 100%; /* Lebar penuh */
+  z-index: 1000; /* Agar navbar berada di depan elemen lainnya */
+}
+
+/* Ubah warna teks di semua link navbar menjadi hitam */
+.navbar-nav .nav-link,
+.navbar-nav .nav-item .nav-link {
+  color: black !important; /* ini yang button */
+  padding: 10px 15px; 
+  border-radius: 5px; 
+}
+
+/* Ubah warna teks di navbar-brand menjadi hitam */
+.navbar-brand .text-brand span {
+  color: black !important; /* ini admin panel */
+  text-transform: uppercase;
+}
+
+/* Mengubah warna teks navbar saat hover */
+.navbar-nav .nav-link:hover {
+  background-color: #444; /* abu abu */
+  color: white !important; /* Ubah warna teks menjadi putih saat hover */
+}
+
+/* Margin untuk konten agar tidak tumpang tindih dengan navbar */
+body {
+  margin-top: 80px; 
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    text-align: center; 
+  }
+}

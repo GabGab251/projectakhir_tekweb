@@ -1,0 +1,27 @@
+/* Footer Styling */
+.footer {
+  background-color: #343a40; /* Warna gelap */
+  color: white; /* Teks putih */
+}
+
+.footer h5 {
+  font-weight: bold;
+}
+
+.footer a {
+  color: white; /* Teks link putih */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Garis bawah saat hover */
+  color: #f8f9fa; /* Warna abu terang saat hover */
+}
+
+.footer hr {
+  border-color: white; /* Warna garis pemisah */
+}
+
+.footer p {
+  margin: 0; /* Menghilangkan margin default */
+}

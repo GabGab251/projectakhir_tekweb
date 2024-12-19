@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog</title>
+</head>
+<style>
+    .catalog-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.book-item {
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.book-item h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+.book-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+</style>
+<body>
+    <div class="catalog-container">
+        <h1>Book Catalog</h1>
+        <div id="book-list" class="book-list"></div>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Retrieve URL parameters for filtering
+    const params = new URLSearchParams(window.location.search);
+    const author = params.get("author") || "";
+    const title = params.get("title") || "";
+
+    // Example book data (replace with API or server data)
+    const books = [
+        { id: 1, title: "Book One", author: "Author A", status: true, image: "book1.jpg" },
+        { id: 2, title: "Book Two", author: "Author B", status: false, image: "book2.jpg" },
+        { id: 3, title: "Another Book", author: "Author A", status: true, image: "book3.jpg" }
+    ];
+
+    // Filter books based on search query
+    const filteredBooks = books.filter(book => {
+        return (
+            (title === "" || book.title.toLowerCase().includes(title.toLowerCase())) &&
+            (author === "" || book.author.toLowerCase().includes(author.toLowerCase()))
+        );
+    });
+
+    // Display filtered books
+    const bookList = document.getElementById("book-list");
+    if (filteredBooks.length === 0) {
+        bookList.innerHTML = "<p>No books found.</p>";
+    } else {
+        bookList.innerHTML = filteredBooks.map(book => `
+            <div class="book-item">
+                <a href="bookdetail.html?id=${book.id}">
+                    <img src="${book.image}" alt="${book.title}">
+                </a>
+                <h3>
+                    <a href="bookdetail.html?id=${book.id}">${book.title}</a>
+                </h3>
+                <p>by ${book.author}</p>
+            </div>
+        `).join("");
+    }
+});
+
+</script>
+</html>
