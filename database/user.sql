@@ -18,31 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projek_tekweb`
+-- Database: projek_tekweb
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table user
 --
 
-CREATE TABLE `user` (
-  `ID` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `no_telepon` varchar(15) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `first_name` varchar(15) NOT NULL,
-  `last_name` varchar(15) NOT NULL,
-  `role` varchar(10) NOT NULL
+CREATE TABLE user (
+  ID int(11) NOT NULL,
+  username varchar(50) NOT NULL,
+  no_telepon varchar(15) NOT NULL,
+  email varchar(100) NOT NULL,
+  password varchar(100) NOT NULL,
+  first_name varchar(15) NOT NULL,
+  last_name varchar(15) NOT NULL,
+  role varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table user
 --
 
+<<<<<<< HEAD
 INSERT INTO `user` (`ID`, `username`, `no_telepon`, `email`, `password`, `first_name`, `last_name`, `role`) VALUES
+=======
+INSERT INTO user (ID, username, no_telepon, email, password, first_name, last_name, role) VALUES
+>>>>>>> d13d2e6a6fdf995fa01e63655161c839db5d9117
 (1, 'gab10', '081241205412', 'gabrielle.10@gmail.com', '$2y$10$.9ff6mqhZnG89FOd7y/QXeelisx6IGsNBslH2qNp9Q/sQGTGO7xpu', 'Gabrielle', 'Ambasalu', 'user'),
 (3, 'sharon22', '081927876089', 'sharon.valerina@gmail.com', '$2y$10$Fji8eG/ieY56SYWxl5KBgOHIIKfNgeD4FubqlvdwnINQS49T3kOAS', 'Sharon', 'Tannus', 'user'),
 (4, 'jenni25', '085243667854', 'jenni.aloy@gmail.com', '$2y$10$1dTr9HfQZRFvWdO3DjJreuS6NE7CN./AfIqmNUsioTUFzlOPDkqzi', 'Jennifer', 'Harijadi', 'user'),
@@ -57,20 +61,25 @@ INSERT INTO `user` (`ID`, `username`, `no_telepon`, `email`, `password`, `first_
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table user
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE user
+  ADD PRIMARY KEY (ID);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table user
 --
+<<<<<<< HEAD
 ALTER TABLE `user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+=======
+ALTER TABLE user
+  MODIFY ID int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+>>>>>>> d13d2e6a6fdf995fa01e63655161c839db5d9117
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
