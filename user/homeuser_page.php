@@ -1,3 +1,38 @@
+<?php
+
+
+include ('../koneksi.php');
+
+$searchResults = [];
+$searchMessage = "";
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] === "GET" && (isset($_GET['book-author']) || isset($_GET['book-title']))) {
+  $author = isset($_GET['book-author']) ? trim($_GET['book-author']) : '';
+  $title = isset($_GET['book-title']) ? trim($_GET['book-title']) : '';
+
+  // SQL Query
+  $query = "SELECT * FROM books WHERE 1=1";
+  if (!empty($author)) {
+    $query .= " AND author LIKE '%" . $conn->real_escape_string($author) . "%'";
+  }
+  if (!empty($title)) {
+    $query .= " AND title LIKE '%" . $conn->real_escape_string($title) . "%'";
+  }
+
+  // Execute query
+  $result = $conn->query($query);
+
+  if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $searchResults[] = $row;
+    }
+  } else {
+    $searchMessage = "No books found matching your criteria.";
+  }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -59,15 +94,14 @@
           </div>
 
           <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
-            <form class="custom-form hero-form" action="#" method="get" role="form">
+            <form class="custom-form hero-form" action="" method="get" role="form">
               <h3 class="text-white mb-3">Search</h3>
 
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-fancy"></i></span>
-                    <input type="text" name="book-author" id="book-author" class="form-control"
-                      placeholder="Author's name">
+                    <input type="text" name="book-author" id="book-author" class="form-control" placeholder="Author's name">
                   </div>
                 </div>
 
@@ -83,12 +117,33 @@
                 </div>
               </div>
             </form>
+
           </div>
         </div>
       </div>
     </section>
 
-    <<section class="reminder-section py-5">
+    <section class="search-results-section py-5">
+      <div class="container">
+        <h3>Search Results:</h3>
+        <?php if (!empty($searchResults)): ?>
+          <ul>
+            <?php foreach ($searchResults as $book): ?>
+              <li>
+                <strong>Title:</strong> <?php echo htmlspecialchars($book['title']); ?> <br>
+                <strong>Author:</strong> <?php echo htmlspecialchars($book['author']); ?> <br>
+                <strong>Category:</strong> <?php echo htmlspecialchars($book['category']); ?> <br>
+                <strong>Status:</strong> <?php echo htmlspecialchars($book['status']); ?> <br>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        <?php elseif (!empty($searchMessage)): ?>
+          <p><?php echo $searchMessage; ?></p>
+        <?php endif; ?>
+      </div>
+    </section>
+
+    <section class="reminder-section py-5">
       <div class="container">
         <div class="row">
           <!-- Kiri: Konten Reminder -->
@@ -167,31 +222,31 @@
   </div>
 
   <script>
-  // Scroll to top functionality
-  const backToTopButton = document.getElementById('back-to-top');
-  backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  // Dropdown Toggle
-  document.querySelector(".navbar-profile-icon").addEventListener("click", function() {
-    document.getElementById("profileMenu").classList.toggle("show");
-  });
-
-  // Close the dropdown if clicked outside
-  window.onclick = function(event) {
-    if (!event.target.matches('.navbar-profile-icon')) {
-      var dropdowns = document.querySelectorAll('.dropdown-content');
-      dropdowns.forEach(function(dropdown) {
-        if (dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
-        }
+    // Scroll to top functionality
+    const backToTopButton = document.getElementById('back-to-top');
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
-    }
-  };
+    });
+
+    // Dropdown Toggle
+    document.querySelector(".navbar-profile-icon").addEventListener("click", function() {
+      document.getElementById("profileMenu").classList.toggle("show");
+    });
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.navbar-profile-icon')) {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(function(dropdown) {
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    };
   </script>
 </body>
 
